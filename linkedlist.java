@@ -65,7 +65,33 @@ public class linkedlist{
       ntemp=null;     //completely removed..
     }
     }
- 
+
+//................................................................................................................................
+
+
+     //Function to delete the values if that value matches with the users wished to delete...
+
+     public void deletethe(int del){
+      Node n=head;
+      Node prev=null;
+      while(n!=null){
+        if(n.data==del){
+          if(n==head){
+            head=n.next;
+          }else{
+            prev.next=n.next;  //link the prev node to the current's node's next node if the value matches
+          }
+        }else{  // value is not there so, let's travel....
+    
+            prev=n;
+        }
+        n=n.next;   // so outside the else so that it can travel even when we found the value or not at that Node( @ n.data ).  
+      }
+     }
+
+//................................................................................................................................
+
+    
     public void removelast(){
       
       if(head==null){
