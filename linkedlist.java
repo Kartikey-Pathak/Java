@@ -34,6 +34,15 @@ public class linkedlist{
     }
 
     public void insertat(int idx,int data){
+
+      //Base Case Check 
+      if(idx<0||idx>0&&head==null){
+        System.err.println("Invalid Index");
+        return;
+
+      }
+
+
         Node node=new Node();
         node.data=data;
         node.next=null;
@@ -52,6 +61,15 @@ public class linkedlist{
     }
 
     public void deleteat(int idx){
+
+      //Base Case Check
+      if(idx<0||head==null){
+        System.out.println("Wrong Index Is Entered.");
+        return;
+      }
+
+
+
       Node n=head;
       Node ntemp=null;
       if(idx==0){
@@ -66,7 +84,9 @@ public class linkedlist{
     }
     }
 
-//................................................................................................................................
+
+
+    //................................................................................................................................
 
 
      //Function to delete the values if that value matches with the users wished to delete...
@@ -91,7 +111,6 @@ public class linkedlist{
 
 //................................................................................................................................
 
-    
     public void removelast(){
       
       if(head==null){
@@ -115,6 +134,7 @@ public class linkedlist{
 
     }
 
+
     public int find(int val){
       int idx=0;
            Node n=head;
@@ -122,20 +142,53 @@ public class linkedlist{
            while(n.next!=null){
             n=n.next;
             idx++;
-            if(n.data==7){
+            if(n.data==val){
               System.out.println("Found");
               return idx; 
             }
            }
-         return idx;
+         System.out.println("Value Not Found...");
+         return -1;
     }
+
+    // Reversing The LinkedList...
+    
+    public void reverse(){
+      Node prev=null;
+      Node curr=head;
+ 
+      //Check The conditions For The head
+      if(head==null|| head.next==null){
+        return;
+      }
+
+
+      while(curr!=null){
+        Node currnext=curr.next;
+        curr.next=prev;
+        prev=curr;
+        curr=currnext;
+      }
+      head.next=null;
+      head=prev;  //prev node is head because the curr node will be at null.
+    }
+
+
     
     public void display(){
         Node n=head;
-        while(n.next!=null){
+
+        //Base Case When Whole List Is Empty..
+        if(n==null){
+          System.err.println("Empty List......");
+          return;
+        }
+
+
+        while(n!=null){
             System.out.print(n.data+" ");
             n=n.next;
         }
-        System.out.print(n.data+" ");
+        
     }
 }
