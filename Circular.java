@@ -12,7 +12,7 @@ class Circular{
              front=-1;
          }
          public static boolean isEmpty(){
-             return rear==-1&front==-1;
+             return rear==-1&&front==-1;
          }
 
           public static boolean isFull(){
